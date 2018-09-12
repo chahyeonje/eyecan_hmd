@@ -10,7 +10,7 @@ exports_files(["data/grace_hopper.jpg"])
 
 load("//tensorflow:tensorflow.bzl", "tf_cc_binary")
 
-tf_cc_binary(
+cc_binary(
     name = "unit_test",
     srcs = [
         "unit_test.cc",
