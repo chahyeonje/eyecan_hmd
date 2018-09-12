@@ -1,4 +1,4 @@
-/*
+
 #include <iostream>
 #include <curl/curl.h>
 #include <string>
@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sstream>
-
+/*
 using namespace std;
 
 //밖에서 불러올 변수 
@@ -26,7 +26,7 @@ string rBuffer;	//알릴 메세지
 string EC; //서버에 보낼 정보
 string URL="https://eyecan.tk/rest_api/map_api?";
 string tmp; //서버에서 받는 정보
- */
+*/
 
 
 //int geo_yaw_=(int)geo_yew;
