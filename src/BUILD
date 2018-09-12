@@ -44,6 +44,7 @@ tf_cc_binary(
     copts = [
 	"-I/usr/local/include/", 
 	"-O3",
+	"-fexceptions",
 	],
 
     deps = [
