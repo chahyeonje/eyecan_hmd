@@ -152,6 +152,6 @@ cc_library(
     srcs = ["switch.cc"],
     hdrs = [
         "include/switch.h",
-	"@wiringPi//: wiringPi"
+	"@wiringPi//:wiringPi"
     ],
 )
