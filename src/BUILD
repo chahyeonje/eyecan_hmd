@@ -36,7 +36,7 @@ tf_cc_binary(
 
     deps = [
 	    ":camera", 
-	    ":curl", 
+	    ":hmdcurl", 
 	    ":geomagnetic", 
 	    ":hmdgps", 
 	    ":network", 
@@ -101,11 +101,16 @@ cc_library(
 )
 
 cc_library(
-    name = "curl",
-    srcs = ["curl.cc"],
+    name = "hmdcurl",
+    srcs = ["hmdcurl.cc"],
     hdrs = [
-        "include/curl.h",
+        "include/hmdcurl.h",
     ],
+    linkopts = [
+	"-lm", 
+	"-lcrul",
+    ],
+
 )
 
 
