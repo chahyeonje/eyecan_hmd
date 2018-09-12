@@ -47,7 +47,7 @@ void *subTask1(void *data)
         updateSwitch();
         
         //GPS 업데이트
-        //updateGPS();라즈베리파이에서만 실행되는 함수
+        updateGPS();라즈베리파이에서만 실행되는 함수
         
         //배터리검사
         //updateBattery();함수구현아직안됨
@@ -86,7 +86,7 @@ void *speakerTask(void *data)
     {
         //스피커가 사용 중이지 않을 때에만 주기적으로 비프음 재생
         
-        bool speakerBusy = s_busy;
+        bool speakerBusy = s_busy;//전역변수 s_busy를 받아온다
         if(!speakerBusy)
         {
             
@@ -111,8 +111,11 @@ void initDevice()
     printf("Device Initialization...\n");
     initCamera();
     initGeo();
+    initCurl();
+    initGPS();
     initNetwork();
-    //initGPS(); //라즈베리파이에서만 동작
+    initSpeaker();
+    initSwitch();
     
     
 }
@@ -160,9 +163,9 @@ int main()
         {
             //픽셀값 업데이트
             updatePixel();
-            getSegmentation();
+            getSegmentation();//세그멘테이션정보를 전역 매트릭스에 저장
             sleep(1);
-            calculateScore();
+            calculateScore();//스코어계산해서 전역변수 scored에 저장
         }
     }
     

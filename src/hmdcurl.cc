@@ -9,6 +9,7 @@
 
 #include "include/hmdgps.h"
 #include "include/switch.h"
+#include "include/geomagnetic.h"
 /*
 using namespace std;
 
