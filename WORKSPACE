@@ -7,6 +7,13 @@ new_local_repository(
     build_file = "opencv.BUILD",
 )
 
+new_local_repository(
+    name = "wiringPi",
+    #path = "/usr/local/Cellar/opencv/3.4.2", #for mac
+    path = "/usr/local",#라즈베리파이 경로
+    build_file = "wiringPi.BUILD",
+)
+
 
 http_archive(
     name = "io_bazel_rules_closure",
