@@ -15,17 +15,6 @@ tf_cc_binary(
     srcs = [
         "unit_test.cc",
     ],
-
-    linkopts = [
-	"-lm", 
-	"-lpthread",
-    ],
-
-    copts = [
-	"-I/usr/local/include/", 
-	"-O3",
-	],
-
     deps = [
 	    ":camera", 
 	    ":hmdcurl", 
