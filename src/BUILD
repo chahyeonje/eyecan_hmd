@@ -140,9 +140,6 @@ cc_library(
     hdrs = [
         "include/speaker.h",
     ],
-	deps = [
-	    "@opencv//:opencv",
-	],
 )
 
 cc_library(
