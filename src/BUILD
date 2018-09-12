@@ -10,13 +10,7 @@ exports_files(["data/grace_hopper.jpg"])
 
 load("//tensorflow:tensorflow.bzl", "tf_cc_binary")
 
-cc_binary(   
-    name = "cameratest",
-    srcs = ["cameratest.cc"],
-    deps = ["camera",
-	   "@opencv//:opencv",
-	   ],
-)
+
 
 tf_cc_binary(
     name = "eyecan",
@@ -52,13 +46,7 @@ tf_cc_binary(
     ]
 )
 
-cc_binary(
-    name = "geotest",
-    srcs = ["geotest.cc"],
-    deps = [
-	    ":geomagnetic", 
-    ]
-)
+
 
 
 cc_library(
@@ -114,7 +102,7 @@ cc_library(
     deps = [
 	    ":hmdgps", 
 	    ":switch",
-	    ": geomagnetic",
+	    ":geomagnetic",
     ],
 
 )
