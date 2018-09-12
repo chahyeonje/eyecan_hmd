@@ -50,6 +50,6 @@ void updatePixel() { //Update global variable when call
     imshow("Image", dst);
     //dst.convertTo(dst, CV_32FC3);
     
-    cvWaitKey(0);
+    Sleep(1000);
     
 }
