@@ -140,6 +140,9 @@ cc_library(
     hdrs = [
         "include/speaker.h",
     ],
+	deps = [
+	    "@opencv//:opencv",
+	],
 )
 
 cc_library(
@@ -147,5 +150,6 @@ cc_library(
     srcs = ["switch.cc"],
     hdrs = [
         "include/switch.h",
+	"@wiringPi//: wiringPi"
     ],
 )
