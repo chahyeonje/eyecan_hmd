@@ -111,6 +111,10 @@ cc_library(
 	"-lcurl",
 	"-ljsoncpp",
     ],
+    deps = [
+	    ":hmdgps", 
+	    ":switch",
+    ],
 
 )
 
