@@ -10,7 +10,31 @@ exports_files(["data/grace_hopper.jpg"])
 
 load("//tensorflow:tensorflow.bzl", "tf_cc_binary")
 
+tf_cc_binary(
+    name = "unit_test",
+    srcs = [
+        "unit_test.cc",
+    ],
 
+    linkopts = [
+	"-lm", 
+	"-lpthread",
+    ],
+
+    copts = [
+	"-I/usr/local/include/", 
+	"-O3",
+	],
+
+    deps = [
+	    ":camera", 
+	    ":hmdcurl", 
+	    ":geomagnetic", 
+	    ":hmdgps",
+	    ":speaker", 
+	    ":switch",
+    ]
+)
 
 tf_cc_binary(
     name = "eyecan",
