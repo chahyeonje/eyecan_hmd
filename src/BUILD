@@ -108,7 +108,7 @@ cc_library(
     ],
     linkopts = [
 	"-lm", 
-	"-lcrul",
+	"-lcurl",
 	"-ljsoncpp",
     ],
 
