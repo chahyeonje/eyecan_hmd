@@ -11,7 +11,6 @@
 #include "include/hmdgps.h"
 #include "include/geomagnetic.h"
 #include "include/switch.h"
-#include "include/network.h"
 #include "include/hmdcurl.h"
 #include "include/speaker.h"
 #include "include/camera.h"
