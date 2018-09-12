@@ -15,6 +15,9 @@ tf_cc_binary(
     srcs = [
         "unit_test.cc",
     ],
+    copts = [
+	"-fexceptions",
+	],
     deps = [
 	    ":camera", 
 	    ":hmdcurl", 
@@ -23,6 +26,8 @@ tf_cc_binary(
 	    ":speaker", 
 	    ":switch",
     ]
+
+
 )
 
 tf_cc_binary(
