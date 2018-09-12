@@ -6,6 +6,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sstream>
+
+#include "include/hmdgps.h"
+#include "include/switch.h"
 /*
 using namespace std;
 
