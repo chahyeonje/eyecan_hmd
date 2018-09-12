@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <cstdlib>
+#include <unistd.h>
 
 using namespace cv;
 using namespace std;
