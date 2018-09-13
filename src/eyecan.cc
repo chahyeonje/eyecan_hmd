@@ -36,7 +36,10 @@
 #include "tensorflow/core/util/command_line_flags.h"
 
 
-
+#include <alsa/asoundlib.h>
+#include <alsa/pcm.h>
+#include <math.h>
+#define BUFFER_LEN 48000
 
 // 쓰레드 함수
 void *subTask1(void *data)

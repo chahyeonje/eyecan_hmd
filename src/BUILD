@@ -63,6 +63,7 @@ tf_cc_binary(
             "//tensorflow/core:lib",
             "//tensorflow/core:protos_all_cc",
             "//tensorflow/core:tensorflow",
+"@alsa//:alsa",
     ]
 )
 
