@@ -17,12 +17,12 @@
 
 
 
-
 int main()
 {
     cout<<"test started!"<<endl;
 
-    updateGPS();
-    initGPS();
+    initGeo();
+    updateGeo();
+    
     return 0;
 }
