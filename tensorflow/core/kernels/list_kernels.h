@@ -125,7 +125,7 @@ class TensorListStack : public OpKernel {
      // return;
     }
 #endif  // GOOGLE_CUDA
-    ConcatCPU<T>(c->device(), inputs_flat, &output_flat);
+    //ConcatCPU<T>(c->device(), inputs_flat, &output_flat);
   }
 
  private:
