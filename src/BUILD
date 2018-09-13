@@ -25,6 +25,7 @@ cc_binary(
 	    ":hmdgps",
 	    ":speaker", 
 	    ":switch",
+ 		"@alsa//:alsa",
     ]
 
 
