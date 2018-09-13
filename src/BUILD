@@ -15,6 +15,11 @@ cc_binary(
     srcs = [
         "unit_test.cc",
     ],
+    linkopts = [
+	"-lm", 
+	"-lpthread",
+	"-lasound",
+    ],
     copts = [
 	"-fexceptions",
 	],
