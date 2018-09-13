@@ -25,7 +25,6 @@ cc_binary(
 	    ":hmdgps",
 	    ":speaker", 
 	    ":switch",
- 		"@alsa//:alsa",
     ]
 
 
@@ -40,12 +39,14 @@ tf_cc_binary(
     linkopts = [
 	"-lm", 
 	"-lpthread",
+	"-lasound",
     ],
 
     copts = [
 	"-I/usr/local/include/", 
 	"-O3",
 	"-fexceptions",
+
 	],
 
     deps = [
@@ -63,7 +64,6 @@ tf_cc_binary(
             "//tensorflow/core:lib",
             "//tensorflow/core:protos_all_cc",
             "//tensorflow/core:tensorflow",
-"@alsa//:alsa",
     ]
 )
 
