@@ -175,7 +175,7 @@ void playTTS( string rBuffer ){
 }
 int main()
 {
-/*	while(1){
+	while(1){
 
 		playTTS(rBuffer);
 		for(int i=0; i<5 ;i++){
@@ -186,8 +186,8 @@ int main()
 		}
 
 	}
-*/
-	playTTS("hi hahaha");  
+
+  
 
 	return 0;
 

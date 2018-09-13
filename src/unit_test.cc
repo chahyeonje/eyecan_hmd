@@ -22,6 +22,7 @@ int main()
 {
     cout<<"test started!"<<endl;
 
-    
+    updateGPS();
+    initGPS();
     return 0;
 }
