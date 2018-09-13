@@ -1,4 +1,4 @@
-exturn "C"
+extern "C"
 {
 #include "include/gps.h"
 }
