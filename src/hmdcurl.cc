@@ -154,7 +154,7 @@ void sendData()
 	}
 
 }
-bool s_busy=false;
+
 
 void playTTS( string rBuffer ){
     
