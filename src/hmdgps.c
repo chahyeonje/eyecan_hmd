@@ -1,5 +1,7 @@
+exturn "C"
+{
 #include "include/gps.h"
-
+}
 double gps_lat;
 double gps_long;
 
