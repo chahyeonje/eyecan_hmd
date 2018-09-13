@@ -12,6 +12,7 @@
 #include "include/hmdgps.h"
 #include "include/switch.h"
 #include "include/geomagnetic.h"
+#include "include/speaker.h"
 
 using namespace std;
 
