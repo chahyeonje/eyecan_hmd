@@ -6,42 +6,44 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sstream>
+#include <cstdlib>
+#include <cstring>
 
 #include "include/hmdgps.h"
 #include "include/switch.h"
 #include "include/geomagnetic.h"
-/*
+
 using namespace std;
 
-//밖에서 불러올 변수 
-extern double geo_yaw;
-extern double gps_lat;
-extern double gps_long;
-extern int sw1;
-extern int sw2;
-extern int sw3;
-extern int sw4;
-extern int sw5;
-//여기서만 쓸 변수 
+/*
+double geo_yaw=123.2;
+double gps_long=129.074141;
+double gps_lat=35.2331576;
+int sw1=1;
+int sw2=0;
+int sw3=0;
+int sw4=0;
+int sw5=0;
+*/
 int pin;
 int device_id=12345;
 int battery=76;
-string rBuffer;	//알릴 메세지
-string EC; //서버에 보낼 정보
+string rBuffer; 
+string EC; 
 string URL="https://eyecan.tk/rest_api/map_api?";
-string tmp; //서버에서 받는 정보
-*/
+string tmp; 
+ 
 
 
-//int geo_yaw_=(int)geo_yew;
+int geo_yaw_=(int)geo_yaw;
 
-//버퍼 비우기
+
 void flushBuffer()
 {
-	//tmp="";
+	tmp="";
     	//cout<<"flushBuffer()"<<endl;
 }
-/*
+
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
 {
 	((string*)userp)->append((char*)contents, size*nmemb);
@@ -61,12 +63,12 @@ string JTOS(Json::Value Eye){
     	strs << Eye;
     	return strs.str();
 }
-*/
 
-//통신초기화
+
+
 void initCurl()
 {
-    /*
+
     	flushBuffer();
     	if(sw1==1)
         	pin=1;
@@ -93,26 +95,26 @@ void initCurl()
             		+"&angle="+NTOS(geo_yaw_);
     	}
   	//cout<<"initCurl()"<<endl;
-    */
+    
 }
 
-//버퍼가 비었는지 확인
+
 bool isBufferEmpty()
 {
-    /*
+
   	if(tmp=="")
     		return true;
   	else
     		return false;
    	// cout<<"isBufferEmpty()"<<endl;
-*/
+
 }
 
 
-//버퍼에 데이터 보내기
+
 void sendData()
 {
-    /*
+
   	initCurl();
   	CURL *curl;
 	CURLcode res;
@@ -127,7 +129,7 @@ void sendData()
     		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headerlist);
     		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
     		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-    		cuurl_easy_setopt(curl, CURLOPT_URL, EC.c_str());
+    		curl_easy_setopt(curl, CURLOPT_URL, EC.c_str());
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &tmp);
 
@@ -148,7 +150,52 @@ void sendData()
       			rBuffer=JTOS(Eyecan["message"]);
      		}
     	//code_num=JTOS(Eyecan["code_num"]);
-	//cout<<"sendData()"<<endl;
+	cout<<rBuffer<<endl;
 	}
-*/
+
 }
+bool s_busy=false;
+
+void playTTS( string rBuffer ){
+    
+    if(rBuffer =="NO"){
+    }
+    else
+    {
+        
+        if(!s_busy)
+        {
+            s_busy = true;
+           
+            string cmd = "php tts.php "+rBuffer;
+            system(cmd.c_str());
+            
+            system("omxplayer tts.mp3");
+            s_busy = false;
+	    
+        }
+    }
+    
+}
+
+//테스트용 
+/*
+int main()
+{
+	while(1){
+
+		playTTS(rBuffer);
+		for(int i=0; i<5 ;i++){
+
+			sendData();
+			sleep(1);
+			gps_long=gps_long+0.0005;
+		}
+
+	}
+
+  
+
+	return 0;
+
+}*/
