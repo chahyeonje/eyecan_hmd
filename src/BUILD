@@ -164,6 +164,10 @@ cc_library(
     hdrs = [
         "include/speaker.h",
     ],
+    linkopts = [
+	"-lm", 
+	"-lasound",
+    ],
 )
 
 cc_library(
