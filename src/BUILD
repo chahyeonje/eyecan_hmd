@@ -75,6 +75,9 @@ cc_library(
         "include/geomagnetic.h",
 	"include/myahrs_plus.hpp",
     ],
+    linkopts = [
+	"-lpthread",
+    ],
 )
 
 cc_library(
