@@ -74,7 +74,5 @@ int main()
     }
     
     snd_pcm_close(handle);
-    return 0;xwxw
->>>>>>> c2c4e83b1aa0eff3060bcc229c04422e6f5cae9b
     return 0;
 }
