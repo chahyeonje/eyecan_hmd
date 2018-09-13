@@ -79,7 +79,7 @@ cc_library(
 
 cc_library(
     name = "hmdgps",
-    srcs = ["hmdgps.c"],
+    srcs = ["hmdgps.cc"],
     deps = [
 	    ":gps", 
     ],
