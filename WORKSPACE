@@ -14,6 +14,12 @@ new_local_repository(
     build_file = "wiringPi.BUILD",
 )
 
+new_local_repository(
+    name = "alsa",
+    path = "/usr",#라즈베리파이 경로
+    build_file = "alsa.BUILD",
+)
+
 
 http_archive(
     name = "io_bazel_rules_closure",
