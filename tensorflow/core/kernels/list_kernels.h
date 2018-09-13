@@ -189,12 +189,12 @@ class TensorListGather : public OpKernel {
     auto output_flat = output->shaped<T, 2>({1, output->NumElements()});
 
 #if GOOGLE_CUDA
-    if (std::is_same<Device, Eigen::GpuDevice>::value) {
-      ConcatGPU<T>(c, inputs_flat, output, &output_flat);
-      return;
+    //if (std::is_same<Device, Eigen::GpuDevice>::value) {
+    //  ConcatGPU<T>(c, inputs_flat, output, &output_flat);
+    //  return;
     }
 #endif  // GOOGLE_CUDA
-    ConcatCPU<T>(c->device(), inputs_flat, &output_flat);
+    //ConcatCPU<T>(c->device(), inputs_flat, &output_flat);
   }
 
  private:
