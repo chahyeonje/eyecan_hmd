@@ -123,6 +123,7 @@ cc_library(
 	"-ljsoncpp",
     ],
     deps = [
+		":speaker",
 	    ":hmdgps", 
 	    ":switch",
 	    ":geomagnetic",

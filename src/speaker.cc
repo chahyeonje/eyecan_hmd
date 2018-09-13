@@ -1,4 +1,6 @@
 #include<iostream>
+#include <cstring>
+
 using namespace std;
 
 int bpm=0;//bit per minute
@@ -19,6 +21,29 @@ void changeBeep(int b)
     cout<<"changeBeep()\n";
     bpm =b;
 }
+/*
+void playTTS( string rBuffer ){
+    
+    if(rBuffer =="NO"){
+    }
+    else
+    {
+        
+        if(!s_busy)
+        {
+            s_busy = true;
+            
+            string cmd = "php tts.php "+rBuffer;
+            system(cmd.c_str());
+            
+            system("omxplayer tts.mp3");
+            s_busy = false;
+            
+        }
+    }
+    
+}
+*/
 void playTTS(char* str)
 {
     //스피커가 다른 재생을 하지 않고 있을때에만

@@ -12,8 +12,6 @@
 #include "include/hmdgps.h"
 #include "include/switch.h"
 #include "include/geomagnetic.h"
-#include "include/speaker.h"
-
 using namespace std;
 
 /*
@@ -157,27 +155,7 @@ void sendData()
 }
 
 
-void playTTS( string rBuffer ){
-    
-    if(rBuffer =="NO"){
-    }
-    else
-    {
-        
-        if(!s_busy)
-        {
-            s_busy = true;
-           
-            string cmd = "php tts.php "+rBuffer;
-            system(cmd.c_str());
-            
-            system("omxplayer tts.mp3");
-            s_busy = false;
-	    
-        }
-    }
-    
-}
+
 
 //테스트용 
 /*
