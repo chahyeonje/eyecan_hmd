@@ -53,8 +53,10 @@ std::vector<tensorflow::Tensor> outputTensors;//아웃풋 텐서
 tensorflow::TensorShape shape;//인풋 쉐입
 std::map<int, std::string> labelsMap;
 
+
+/*
 /** Read a labels map file (xxx.pbtxt) from disk to translate class numbers into human-readable labels.
- */
+ /*
 Status readLabelsMapFile(const string &fileName, map<int, string> &labelsMap) {
     
     // Read file into a string
@@ -96,7 +98,7 @@ Status readLabelsMapFile(const string &fileName, map<int, string> &labelsMap) {
     }
     return Status::OK();
 }
-
+*/
 
 /** 그래프 로드하는 함수, 세션오브젝트 생성*/
 Status loadGraph(const string &graph_file_name,
