@@ -2,7 +2,8 @@ extern "C"
 {
 #include "include/gps.h"
 }
-#include <cstdio>
+#include <iostream>
+using namespace std;
 double gps_lat;
 double gps_long;
 

@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 /*
 #include <wiringPi.h>
 */
@@ -15,6 +17,7 @@ int sw5;
 
 void initSwitch()
 {
+    cout<<"initSwitch()"<<endl;
     /*
     wiringPiSetupGpio();
 
