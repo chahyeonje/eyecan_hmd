@@ -160,11 +160,11 @@ int main()
         if(segmentationOn)
         {
             //픽셀값 업데이트
-            sleep(1);
+            //sleep(1);
             updatePixel();
-            sleep(1);
+            //sleep(1);
             getSegmentation();//세그멘테이션정보를 전역 매트릭스에 저장
-            sleep(1);
+            //sleep(1);
             calculateScore();//스코어계산해서 전역변수 scored에 저장
         }
     }
