@@ -200,7 +200,11 @@ int initNetwork()
 //세그멘테이션 결과를 결과배열에 저장한다.
 void getSegmentation()
 {
-    cout<<"getSegmentation process\n";
+    
+    double thresholdScore = 0.5;
+    double thresholdIOU = 0.8;
+    
+    cout<<"getSegmentation process1\n";
     // opencv 매트릭스값을 텐서로 변환
     inputTensor = Tensor(tensorflow::DT_FLOAT, shape);
     Status readTensorStatus = readTensorFromMat(dst, inputTensor);
@@ -219,16 +223,11 @@ void getSegmentation()
         std::cout << runStatus.ToString() << "dddd\n";
         return;
     }
-    /*
-    // Extract results from the outputs vector
-    tensorflow::TTypes<float>::Flat scores = outputTensors[1].flat<float>();
-    tensorflow::TTypes<float>::Flat classes = outputTensors[2].flat<float>();
-    tensorflow::TTypes<float>::Flat numDetections = outputTensors[3].flat<float>();
-    tensorflow::TTypes<float, 3>::Tensor boxes = outputTensors[0].flat_outer_dims<float,3>();
-    cout<<"scores: "<<scores<<endl;
-    cout<<"classess"<<classes<<endl;
-    cout<<"numDec"<<endl<<numDetections<<endl;;
     
+    // Extract results from the outputs vector
+    tensorflow::TTypes<float>::Flat scores = outputTensors[0].flat<float>();
+    cout<<"scores: "<<scores<<endl;
+    /*
     vector<size_t> goodIdxs = filterBoxes(scores, boxes, thresholdIOU, thresholdScore);
     for (size_t i = 0; i < goodIdxs.size(); i++)
         LOG(INFO) << "score:" << scores(goodIdxs.at(i)) << ",class:" << labelsMap[classes(goodIdxs.at(i))]

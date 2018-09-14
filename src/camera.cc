@@ -37,20 +37,25 @@ void initCamera()   // State: Turn on -> loop /Turn out-> sleep
 }
 
 void updatePixel() { //Update global variable when call
-    cout<<"updatePixel()"<<endl;
-    // wait for a new frame from camera and store it into 'frame'
-    cap.read(frame);
-    // check if we succeeded
-    if (frame.empty()) {
-        cerr << "ERROR! blank frame grabbed\n";
+    if (cap.isOpened()) {
+        cout<<"updatePixel()"<<endl;
+        // wait for a new frame from camera and store it into 'frame'
+        cap.read(frame);
+        // check if we succeeded
+        if (frame.empty()) {
+            cerr << "ERROR! blank frame grabbed\n";
+        }
+    
+        resize(frame, dst, Size(640, 480), cv::INTER_LINEAR);
+        // We will use dst
+        // show live and wait for a key with timeout long enough to show images
+        imshow("Image", dst);
+        //dst.convertTo(dst, CV_32FC3);
+        sleep(1000);
     }
-    
-    resize(frame, dst, Size(640, 480), cv::INTER_LINEAR);
-    // We will use dst
-    // show live and wait for a key with timeout long enough to show images
-    imshow("Image", dst);
-    //dst.convertTo(dst, CV_32FC3);
-    
-    sleep(1000);
+    else
+    {
+        cerr << "camera open 안됨!\n";
+    }
     
 }
