@@ -2,6 +2,7 @@ extern "C"
 {
 #include "include/gps.h"
 }
+#include <cstdio>
 double gps_lat;
 double gps_long;
 
@@ -10,7 +11,7 @@ void initGPS(){
 }
 
 void updateGPS(){
-
+    cout<<"void updateGPS()"<<endl;
 	loc_t data;
 	gps_location(&data);
 
