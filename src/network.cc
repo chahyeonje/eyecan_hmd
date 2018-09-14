@@ -173,7 +173,7 @@ int initNetwork()
     
     ////////////////////////////////////////////////////////
     
-    
+    /*
     // Load labels map from .pbtxt file
     labelsMap = std::map<int,std::string>();
     Status readLabelsMapStatus = readLabelsMapFile(tensorflow::io::JoinPath(ROOTDIR, LABELS), labelsMap);
@@ -188,6 +188,7 @@ int initNetwork()
     std::vector<Tensor> outputs;
     double thresholdScore = 0.5;
     double thresholdIOU = 0.8;
+    */
     /////////////////////////////////////////////////////////////////////
     return 0;
     
