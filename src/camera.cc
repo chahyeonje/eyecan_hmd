@@ -22,7 +22,7 @@ Mat frame;
 void initCamera()   // State: Turn on -> loop /Turn out-> sleep
 {  //Starting with initialize
     // 1. Get cam impormation
-    
+    cout<<"initCamera()"<<endl;
     cap.open(0);// OR advance usage: select any API backend
     int deviceID = 0;             // 0 = open default camera
     int apiID = cv::CAP_ANY;      // 0 = autodetect default API
@@ -36,11 +36,13 @@ void initCamera()   // State: Turn on -> loop /Turn out-> sleep
     }
 }
 
-void updatePixel() { //Update global variable when call
+void updatePixel()
+{ //Update global variable when call
     if (cap.isOpened()) {
         cout<<"updatePixel()"<<endl;
         // wait for a new frame from camera and store it into 'frame'
         cap.read(frame);
+        cout<<"updatePixel2()"<<endl;
         // check if we succeeded
         if (frame.empty()) {
             cerr << "ERROR! blank frame grabbed\n";
