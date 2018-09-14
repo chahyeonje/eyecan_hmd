@@ -51,7 +51,7 @@ void updatePixel() { //Update global variable when call
         // show live and wait for a key with timeout long enough to show images
         imshow("Image", dst);
         //dst.convertTo(dst, CV_32FC3);
-        sleep(1000);
+        sleep(1);
     }
     else
     {

@@ -243,4 +243,6 @@ void getSegmentation()
 void calculateScore()
 {
     cout<<"score calculation process\n";
+    
+    
 }
