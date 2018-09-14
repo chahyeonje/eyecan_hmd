@@ -57,5 +57,5 @@ void updatePixel() { //Update global variable when call
     {
         cout << "camera open 안됨!\n";
     }
-    cout<<"updatePixel()"<<endl;
+    cout<<"updatePixel()2"<<endl;
 }
