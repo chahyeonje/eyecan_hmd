@@ -42,7 +42,7 @@ void updatePixel()
     if (cap.isOpened()) {
         
         // wait for a new frame from camera and store it into 'frame'
-        cap.read(frame);
+        cap >> frame;
         cout<<"updatePixel2()"<<endl;
         // check if we succeeded
         if (frame.empty()) {
