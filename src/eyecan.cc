@@ -48,19 +48,14 @@ void *subTask1(void *data)
     {
         //스위치값 업데이트
         updateSwitch();
-        
         //GPS 업데이트
         updateGPS();//라즈베리파이에서만 실행되는 함수
-       
         //배터리검사
         //updateBattery();함수구현아직안됨
-        
         //지자기 업데이트
         updateGeo();
-        
         //서버에 센서값 전송
         sendData();
-        
         sleep(1);
     }
 }
@@ -167,7 +162,9 @@ int main()
             //픽셀값 업데이트
             sleep(1);
             updatePixel();
+            sleep(1);
             getSegmentation();//세그멘테이션정보를 전역 매트릭스에 저장
+            sleep(1);
             calculateScore();//스코어계산해서 전역변수 scored에 저장
         }
     }

@@ -43,6 +43,7 @@ void initSwitch()
 
 void updateSwitch()
 {
+    cout<<"updateSwitch()"<<endl;
     /*
     sw1 = digitalRead(swPin_1);	
     sw2 = digitalRead(swPin_2);

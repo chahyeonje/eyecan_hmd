@@ -8,11 +8,12 @@ double gps_lat;
 double gps_long;
 
 void initGPS(){
+    cout<<"updateGPS()"<<endl;
 	gps_init();
 }
 
 void updateGPS(){
-    cout<<"void updateGPS()"<<endl;
+    cout<<"updateGPS()"<<endl;
 	loc_t data;
 	gps_location(&data);
 
