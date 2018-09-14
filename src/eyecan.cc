@@ -50,7 +50,7 @@ void *subTask1(void *data)
         updateSwitch();
         
         //GPS 업데이트
-//        updateGPS();//라즈베리파이에서만 실행되는 함수
+        updateGPS();//라즈베리파이에서만 실행되는 함수
        
         //배터리검사
         //updateBattery();함수구현아직안됨
