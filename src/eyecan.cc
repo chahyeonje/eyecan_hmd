@@ -46,6 +46,7 @@ void *subTask1(void *data)
 {
     while(1)
     {
+         printf("sensor value update...\n");
         //스위치값 업데이트
         updateSwitch();
         //GPS 업데이트
@@ -64,7 +65,7 @@ void *subTask2(void *data)
 {
     while(1)
     {
-        
+        printf("buffer checking...\n");
         bool bufferEmpty = isBufferEmpty();
         //버퍼가 비어있지 않을 때만
         if(!bufferEmpty)
@@ -159,8 +160,8 @@ int main()
         bool segmentationOn = true;
         if(segmentationOn)
         {
+            sleep(1);
             //픽셀값 업데이트
-            
             updatePixel();
             //sleep(1);
             getSegmentation();//세그멘테이션정보를 전역 매트릭스에 저장
