@@ -9,32 +9,35 @@
 #include <cstdlib>
 #include <cstring>
 
-#include "include/hmdgps.h"
-#include "include/switch.h"
-#include "include/geomagnetic.h"
+#include "hmdgps.h"
+//#include "include/switch.h"
+//#include "include/geomagnetic.h"
 using namespace std;
 
-/*
 double geo_yaw=123.2;
-double gps_long=129.074141;
-double gps_lat=35.2331576;
+//double gps_long=129.074141;
+//double gps_lat=35.2331576;
 int sw1=1;  //23
 int sw2=0; //24
 int sw3=0; //27
 int sw4=0; //22
 int sw5=0; //17
-*/
+
 int pin;
-int device_id=12345;
+int device_id=5678;
 int battery=76;
 string rBuffer; 
 string EC; 
 string URL="http://eyecan.ml/rest_api/map_api?";
 string tmp; 
- 
+
 
 
 int geo_yaw_=(int)geo_yaw;
+int _gps_lat;
+int _gps_long;
+
+
 
 
 void flushBuffer()
@@ -68,7 +71,24 @@ string JTOS(Json::Value Eye){
 void initCurl()
 {
 
+
     	flushBuffer();
+
+/*
+ *
+ *
+ */
+	updateGPS();
+
+	/*
+	 *
+	 *
+	 */
+
+	_gps_lat =(int)gps_lat;
+	_gps_long =(int)gps_long;
+
+
     	if(sw1==1)
         	pin=1;
     	else if(sw2==1)
@@ -89,8 +109,8 @@ void initCurl()
         	EC=URL+"device_id="+NTOS(device_id)
            		+"&index="+NTOS(pin)
             		+"&battery="+NTOS(battery)
-            		+"&locationX="+NTOS(gps_long)
-            		+"&locationY="+NTOS(gps_lat)
+            		+"&locationX="+NTOS(_gps_long)
+            		+"&locationY="+NTOS(_gps_lat)
             		+"&angle="+NTOS(geo_yaw_);
     	}
   	//cout<<"initCurl()"<<endl;
@@ -113,7 +133,7 @@ bool isBufferEmpty()
 
 void sendData()
 {
-	
+
   	initCurl();
   	CURL *curl;
 	CURLcode res;
@@ -149,7 +169,7 @@ void sendData()
       			rBuffer=JTOS(Eyecan["message"]);
      		}
     	//code_num=JTOS(Eyecan["code_num"]);
-	cout<<rBuffer<<endl;	
+	cout<<rBuffer<<endl;
 	}
 
 }
@@ -158,18 +178,30 @@ void sendData()
 
 
 //테스트용 
-/*
+
 int main()
 {
+
+/*
+ */
+
+	initGPS();
+
+
+	/*
+	 */
+
+
 	while(1){
 
-		playTTS(rBuffer);
-		for(int i=0; i<5 ;i++){
+		//playTTS(rBuffer);
+		//for(int i=0; i<2 ;i++){
 
 			sendData();
-			sleep(1);
-			gps_long=gps_long+0.0005;
-		}
+			sleep(0.5);
+			cout<<gps_long<<"  "<<gps_lat<<endl;
+			printf("%d \n",_gps_lat);	
+	//	}
 
 	}
 
@@ -177,4 +209,4 @@ int main()
 
 	return 0;
 
-}*/
+}

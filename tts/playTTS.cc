@@ -26,6 +26,6 @@ int playTTS( string sentence ){
 }
 
 int main(){
-    playTTS("안녕하세요");
+    playTTS("hihi");
 
 }

@@ -9,26 +9,31 @@
 #include <cstdlib>
 #include <cstring>
 
+//#include "include/hmdgps.h"
+//#include "include/switch.h"
+//#include "include/geomagnetic.h"
 using namespace std;
 
 
 double geo_yaw=123.2;
 double gps_long=129.074141;
 double gps_lat=35.2331576;
-int sw1=1;
-int sw2=0;
-int sw3=0;
-int sw4=0;
-int sw5=0;
+int sw1=1;  //23
+int sw2=0; //24
+int sw3=0; //27
+int sw4=0; //22
+int sw5=0; //17
 
 int pin;
-int device_id=12345;
+int device_id=5678;
 int battery=76;
 string rBuffer; 
 string EC; 
-string URL="https://eyecan.tk/rest_api/map_api?";
+string URL="http://eyecan.ml/rest_api/map_api?";
 string tmp; 
- 
+
+bool s_busy=false;
+
 
 
 int geo_yaw_=(int)geo_yaw;
@@ -39,8 +44,8 @@ void flushBuffer()
 	tmp="";
     	//cout<<"flushBuffer()"<<endl;
 }
-
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
+
 {
 	((string*)userp)->append((char*)contents, size*nmemb);
 	return size * nmemb;
@@ -72,15 +77,15 @@ void initCurl()
         	pin=2;
     	else if(sw3==1)
         	pin=3;
-    	else if(sw4==1)
+    	else if(sw4==1)//sos
        		pin=4;
-    	else if(sw5==1)
+    	else if(sw5==1)//jumja
         	pin=8;
     	else
-        	pin=9;
+        	pin=9;//deagi
 
     	if(pin == 4){ //sos
-        	EC="https://eyecan.tk/rest_api/sos_api?device_id="+NTOS(device_id);
+        	EC="http://eyecan.ml/rest_api/sos_api?device_id="+NTOS(device_id);
 	}
     	else {
         	EC=URL+"device_id="+NTOS(device_id)
@@ -150,41 +155,37 @@ void sendData()
 	}
 
 }
-bool s_busy=false;
 
-void playTTS( string rBuffer ){
-    
-    if(rBuffer =="NO"){
-    }
-    else
-    {
-        
-        if(!s_busy)
-        {
-            s_busy = true;
-           
-            string cmd = "php tts.php "+rBuffer;
-            system(cmd.c_str());
-            
-            system("omxplayer tts.mp3");
-            s_busy = false;
-	    
-        }
-    }
-    
+void playTTS(string sentence){
+	if(sentence == "NO"){}
+	else {
+		if(!s_busy)
+		{
+			s_busy=true;
+			string cmd="php tts.php "+sentence;
+			system(cmd.c_str());
+			system("omxplayer tts.mp3");
+			s_busy=false;
+		}
+	}
 }
+
+
+//테스트용 
+
 int main()
 {
 	while(1){
+		sendData();
+	//	playTTS(rBuffer);
+		for(int i=0; i<3 ;i++){
 
-		playTTS(rBuffer);
-		for(int i=0; i<5 ;i++){
-
-			sendData();
+		//	sendData();
 			sleep(1);
-			gps_long=gps_long+0.0005;
+	//	playTTS(rBuffer);
+			gps_long=gps_long+0.0005;		
 		}
-
+		playTTS(rBuffer);
 	}
 
   

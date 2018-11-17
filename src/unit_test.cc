@@ -18,23 +18,29 @@
 #include <alsa/asoundlib.h>
 #include <alsa/pcm.h>
 #include <math.h>
-#define BUFFER_LEN 48000
+/*
+#define BUFFER_LEN 30000 // total beep length $$$$$$ by hmd
 
 static char *device = "default";                       //soundcard
 snd_output_t *output = NULL;
 float buffer [BUFFER_LEN];
-
+*/
 int main()
 {
     cout<<"test started!"<<endl;
 
+    initGPS();
+    updateGPS();
+
+
     initGeo();
     updateGeo();
-    
-    int err;
+ //   sendData();
+ //   cout<<gps_lat<< gps_long<<endl;
+/*    int err;
     int j,k;
     
-    int f = 440;                //frequency
+    int f =400;              //frequency
     int fs = 48000;             //sampling frequency
     
     snd_pcm_t *handle;
@@ -69,10 +75,11 @@ int main()
         buffer[k] = (sin(2*M_PI*f/fs*k));                 //sine wave value generation
     }
     
-    for (j=0; j<5; j++){
+    for (j=0; j<1; j++){ // j is number of beep sound $$$$$$ by hmd
         frames = snd_pcm_writei(handle, buffer, BUFFER_LEN);    //sending values to sound driver
     }
     
     snd_pcm_close(handle);
+    */
     return 0;
 }
