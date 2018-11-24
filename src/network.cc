@@ -129,7 +129,7 @@ Status readTensorFromMat(const Mat &mat, Tensor &outTensor) {
     float *p = outTensor.flat<float>().data();
     Mat fakeMat(mat.rows, mat.cols, CV_32FC3, p);
     mat.convertTo(fakeMat, CV_32FC3);
-    
+    /*
     auto input_tensor = Placeholder(root.WithOpName("input"), tensorflow::DT_FLOAT);
     vector<pair<string, tensorflow::Tensor>> inputs = {{"input", outTensor}};
     auto uint8Caster = Cast(root.WithOpName("uint8_Cast"), outTensor, tensorflow::DT_UINT8);
@@ -146,6 +146,7 @@ Status readTensorFromMat(const Mat &mat, Tensor &outTensor) {
     TF_RETURN_IF_ERROR(session->Run({inputs}, {"uint8_Cast"}, {}, &outTensors));
     
     outTensor = outTensors.at(0);
+    */
     return Status::OK();
 }
 
