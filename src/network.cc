@@ -223,6 +223,8 @@ void getSegmentation()
     if (!runStatus.ok()) {
         std::cout << runStatus.ToString() << "dddd\n";
         return;
+    }else{
+        cout << "Success load graph !! " << "\n";
     }
     
     // Extract results from the outputs vector
