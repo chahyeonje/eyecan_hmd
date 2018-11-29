@@ -38,9 +38,10 @@ float seg_result[OUTPUT_WIDTH][OUTPUT_HEIGHT]; //세그멘테이션 결과를 �
 //string inputLayerName = "image_tensor:0";//수정되어야함
 //vector<string> outputLayerName = {"detection_boxes:0", "detection_scores:0", "detection_classes:0", "num_detections:0"};//수정되어야함
 string GRAPH_PATH = "./data/ex1.model.0.h5.pb";//실행파일 밑에 data폴더에 파일이 있어야함, 실행파일 위치로가서 실행하ㅐ야함
-string inputLayerName = "input_1";//수정되어야함
-vector<string> outputLayerName = {"output_node0"};//수정되어야함
-
+string inputLayerName = "inputs";
+//string inputLayerName = "input_1";//수정되어야함
+//vector<string> outputLayerName = {"output_node0"};//수정되어야함
+vector<string> outputLayerName = {"sigmoid"};//수정되어야함
 
 
 string LABELS = "image_tensor:0";
