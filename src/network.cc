@@ -230,7 +230,7 @@ void getSegmentation()
     
     // Extract results from the outputs vector
     tensorflow::TTypes<float>::Flat scores = outputTensors[0].flat<float>();
-    cout<<"scores: "<<scores<<endl;
+    //cout<<"scores: "<<scores<<endl;
     /*
     vector<size_t> goodIdxs = filterBoxes(scores, boxes, thresholdIOU, thresholdScore);
     for (size_t i = 0; i < goodIdxs.size(); i++)
