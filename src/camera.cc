@@ -17,7 +17,7 @@ using namespace std;
 VideoCapture cap;
 Mat dst;
 Mat frame;
-Mat colorMat
+Mat colorMat;
 //vector<Point3f> pixelData;
 
 void initCamera()   // State: Turn on -> loop /Turn out-> sleep
