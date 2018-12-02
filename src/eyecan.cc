@@ -155,6 +155,8 @@ int main()
         exit(0);
     }
     printf("Thread creation finished\n");
+    
+    
     while(1)
     {
         //스위치 상태 읽어오기

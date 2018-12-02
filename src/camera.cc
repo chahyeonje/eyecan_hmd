@@ -17,6 +17,7 @@ using namespace std;
 VideoCapture cap;
 Mat dst;
 Mat frame;
+Mat colorMat
 //vector<Point3f> pixelData;
 
 void initCamera()   // State: Turn on -> loop /Turn out-> sleep
@@ -50,7 +51,8 @@ void updatePixel()
             cerr << "ERROR! blank frame grabbed\n";
         }
     
-        resize(frame, dst, Size(384, 384), cv::INTER_LINEAR);
+        resize(frame, colorMat, Size(384, 384), cv::INTER_LINEAR);
+        cvtColor(colorMat, dst, CV_BGR2GRAY);
         // We will use dst
         // show live and wait for a key with timeout long enough to show images
         //imshow("Image", dst);
