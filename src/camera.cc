@@ -34,6 +34,7 @@ void initCamera()   // State: Turn on -> loop /Turn out-> sleep
     {
         cerr << "ERROR! Unable to open camera\n";
     }
+    cout<<"camera opend!"<<endl;
 }
 
 void updatePixel()

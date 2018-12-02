@@ -94,6 +94,7 @@ void *speakerTask(void *data)
             sleep(1);
             //score가 일정점수 이상일때만 playBeep()를 수행한다.
             speakerBusy = true;
+            printf("call PlayBeep()...\n");
             playBeep();
             
             speakerBusy = false;
@@ -115,7 +116,7 @@ void initDevice()
     initNetwork();
     initSpeaker();
     initSwitch();
-    
+    printf("Device finished...\n");
     
 }
 
@@ -153,13 +154,14 @@ int main()
         perror("thread create error : ");
         exit(0);
     }
-    
+    printf("Thread creation finished\n");
     while(1)
     {
         //스위치 상태 읽어오기
         bool segmentationOn = true;
         if(segmentationOn)
         {
+            printf("segmentation loop on\n");
             sleep(1);
             //픽셀값 업데이트
             updatePixel();
