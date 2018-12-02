@@ -28,8 +28,8 @@ using tensorflow::string;
 using tensorflow::int32;
 using namespace std;
 
-#define OUTPUT_HEIGHT 480
-#define OUTPUT_WIDTH 680
+#define OUTPUT_HEIGHT 384
+#define OUTPUT_WIDTH 384
 
 //전역변수
 float score;//beep음 주기를 계산하기 위한 전역변수
@@ -172,7 +172,7 @@ int initNetwork()
     shape.AddDim(1);
     shape.AddDim(OUTPUT_HEIGHT);//shape.AddDim((int64)cap.get(CAP_PROP_FRAME_HEIGHT)) 원래 이모양임
     shape.AddDim(OUTPUT_WIDTH);//이 부분 고쳐야 할 수도있음. 이때 cap은 VideoCapture cap(1);
-    shape.AddDim(3);
+    shape.AddDim(1);
     
     
     ////////////////////////////////////////////////////////

@@ -49,7 +49,7 @@ void updatePixel()
             cerr << "ERROR! blank frame grabbed\n";
         }
     
-        resize(frame, dst, Size(640, 480), cv::INTER_LINEAR);
+        resize(frame, dst, Size(384, 384), cv::INTER_LINEAR);
         // We will use dst
         // show live and wait for a key with timeout long enough to show images
         //imshow("Image", dst);
