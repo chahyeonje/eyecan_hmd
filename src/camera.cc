@@ -53,6 +53,7 @@ void updatePixel()
     
         resize(frame, colorMat, Size(384, 384), cv::INTER_LINEAR);
         cvtColor(colorMat, dst, CV_BGR2GRAY);
+        dst.convertTo(dst, CV_32F, 1.0 / 255.0, 0);//normalize
         // We will use dst
         // show live and wait for a key with timeout long enough to show images
         //imshow("Image", dst);
