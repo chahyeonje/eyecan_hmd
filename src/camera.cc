@@ -41,7 +41,7 @@ void updatePixel()
 { //Update global variable when call
     cout<<"updatePixel()"<<endl;
     if (cap.isOpened()) {
-        
+        cout<<"cap.isOpened()"<<endl;
         // wait for a new frame from camera and store it into 'frame'
         cap.read(frame);
         cout<<"updatePixel2()"<<endl;
